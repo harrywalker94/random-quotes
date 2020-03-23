@@ -60,12 +60,18 @@ body {
     box-shadow: none!important;
 }
 
-.img-div {
-    margin-top: 5rem;
+.quote-content {
+    height: 200px;
 }
 
-#img::before {
-    border: solid 2px var(--d-blue);
+.img-div {
+    margin-top: 2rem;
+}
+
+#img {
+    -webkit-box-shadow: -1px 10px 23px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 10px 23px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 10px 23px 2px rgba(0, 0, 0, 0.75);
 }
 
 .author {
