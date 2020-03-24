@@ -57,7 +57,7 @@ $(document).ready(function () {
             quote:
                 "The difference between winning and losing is most often not quitting.",
             author: "- Walt Disney",
-            image: ("./assets/images/ghandi.jpg")
+            image: ("./assets/images/disney.jpg")
 
         },
         {
@@ -69,23 +69,23 @@ $(document).ready(function () {
         },
         {
             quote:
-                "What seems to us as bitter trials are often blessings in disguise.",
-            author: "- Oscar Wilde",
-            image: ("./assets/images/wilde.jpg")
+                "If you're going through hell, keep going.",
+            author: "- Winston Churchill",
+            image: ("./assets/images/churchill.jpg")
 
         },
         {
             quote:
-                "What seems to us as bitter trials are often blessings in disguise.",
-            author: "- Oscar Wilde",
-            image: ("./assets/images/wilde.jpg")
+                "However difficult life may seem, there is always something you can do and succeed at.",
+            author: "- Stephen Hawkin",
+            image: ("./assets/images/hawking.jpg")
 
         },
         {
             quote:
-                "What seems to us as bitter trials are often blessings in disguise.",
-            author: "- Oscar Wilde",
-            image: ("./assets/images/wilde.jpg")
+                "In order to be irreplaceable one must always be different..",
+            author: "- Coco Chanel",
+            image: ("./assets/images/chanel.jpg")
 
         },
     ];
@@ -94,18 +94,24 @@ $(document).ready(function () {
         .getElementById("generate-btn")
         .addEventListener("click", function () {
             // produce random number in the range of quotes items.
-            // length 6;
-            // last item has index 5
-            //0.9 times 6 = 5.4
-            //Math floor will round it down to 5. so from 0 to 5;
             let random = Math.floor(Math.random() * quotes.length);
-            let randomQuotes = quotes.sort[random];
             // display random quote
-            document.getElementById("quote").textContent = quotes.sort[randomQuotes].quote;
+            document.getElementById("quote").textContent = quotes[random].quote;
             // display quote author
             document.querySelector(".quote-author").textContent =
-                quotes.sort[randomQuotes].author;
+                quotes[random].author;
             // display author image
             $("#img").attr("src", quotes[random].image);
+            // Remove each quote after selection to prevent repeat
+            quotes.splice(random, 1);
+            // If quotes array equals 0, remove all content.
+            if (quotes.length == 0) {
+                document.getElementById("quote").textContent = [];
+                document.querySelector(".quote-author").textContent = [];
+                $("#img").attr("src", []);
+                document.querySelector(".modal-body").textContent = ["Thanks for visiting!"];
+                $("#myModal").modal('show');
+            }
+
         });
 })();
