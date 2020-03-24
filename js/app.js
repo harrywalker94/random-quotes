@@ -90,28 +90,30 @@ $(document).ready(function () {
         },
     ];
 
-    const btn = document
-        .getElementById("generate-btn")
-        .addEventListener("click", function () {
-            // produce random number in the range of quotes items.
-            let random = Math.floor(Math.random() * quotes.length);
-            // display random quote
-            document.getElementById("quote").textContent = quotes[random].quote;
-            // display quote author
-            document.querySelector(".quote-author").textContent =
-                quotes[random].author;
-            // display author image
-            $("#img").attr("src", quotes[random].image);
-            // Remove each quote after selection to prevent repeat
-            quotes.splice(random, 1);
-            // If quotes array equals 0, remove all content.
-            if (quotes.length == 0) {
-                document.getElementById("quote").textContent = [];
-                document.querySelector(".quote-author").textContent = [];
-                $("#img").attr("src", []);
-                document.querySelector(".modal-body").textContent = ["Thanks for visiting!"];
-                $("#myModal").modal('show');
-            }
+    document.getElementById("generate-btn").addEventListener("click", function () {
+        // produce random number in the range of quotes items.
+        let random = Math.floor(Math.random() * quotes.length);
+        // display random quote
+        document.getElementById("quote").textContent = quotes[random].quote;
+        // display quote author
+        document.querySelector(".quote-author").textContent =
+            quotes[random].author;
+        // display author image
+        $("#img").attr("src", quotes[random].image);
+        // Remove each quote after selection to prevent repeat
+        quotes.splice(random, 1);
 
-        });
+        // If quotes array equals 0, remove all content.
+        if (quotes.length == 0) {
+            document.getElementById("quote").textContent = [];
+            document.querySelector(".quote-author").textContent = [];
+            $("#img").attr("src", []);
+            document.querySelector(".modal-body").textContent = ["Thanks for visiting!"];
+            $("#myModal").modal('show');
+            document.querySelector(".close").addEventListener("click", function () {
+                location.reload();
+            });
+        }
+    });
+
 })();

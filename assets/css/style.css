@@ -77,3 +77,19 @@ body {
 .author {
     color: var(--l-blue);
 }
+
+@media (max-width: 450px) {
+    .quote-container {
+        width: 100px;
+    }
+    .fa-quote-left {
+        font-size: 2rem;
+    }
+    .quote-content {
+        font-size: 1rem;
+    }
+    #img {
+        height: 200px;
+        width: 210px;
+    }
+}
