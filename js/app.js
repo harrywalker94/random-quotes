@@ -90,7 +90,7 @@ $(document).ready(function () {
         },
     ];
 
-    document.getElementById("generate-btn").addEventListener("click", function () {
+    const btn = document.getElementById("generate-btn").addEventListener("click", function () {
         // produce random number in the range of quotes items.
         let random = Math.floor(Math.random() * quotes.length);
         // display random quote
@@ -115,5 +115,4 @@ $(document).ready(function () {
             });
         }
     });
-
 })();
